@@ -65,6 +65,9 @@ unexport GREP_OPTIONS
 # To put more focus on warnings, be less verbose as default
 # Use 'make V=1' to see the full commands
 
+CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
+CLANG_FLAGS     += -fno-builtin-stpcpy
+
 ifeq ("$(origin V)", "command line")
   KBUILD_VERBOSE = $(V)
 endif
